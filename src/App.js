@@ -45,7 +45,7 @@ const App = () => {
       <DigitButton digit="2" dispatch={dispatch} />
       <DigitButton digit="3" dispatch={dispatch} />
       <OperatorButton operation="-" dispatch={dispatch} />
-      <OperatorButton operation="+/-" dispatch={dispatch} />
+      <button onClick={() => dispatch({type: ACTIONS.NEGATIVE})}>+/-</button>
       <DigitButton digit="0" dispatch={dispatch} />
       <DigitButton digit="." dispatch={dispatch} />
       <button onClick={() => dispatch({type: ACTIONS.CALCULATE})}>=</button>

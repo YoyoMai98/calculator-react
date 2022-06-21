@@ -18,9 +18,14 @@ const calculate = ({currentOperand, previousOperand, operation}) => {
     case "÷":
       computation = prev / curr
       break
-    case "+/-":
-      computation = -curr
   }
+  return computation.toString()
+}
+
+const negative = currNumber => {
+  const curr = parseFloat(currNumber)
+  if(isNaN(curr)) return ""
+  let computation = -curr
   return computation.toString()
 }
 
@@ -83,6 +88,12 @@ const AppReducer = (state, {type, payload}) => {
         operation: null,
         currentOperand: calculate(state),
         overwrite: true
+      }
+
+    case ACTIONS.NEGATIVE:
+      return {
+        ...state,
+        currentOperand: negative(state.currentOperand),
       }
 
     case ACTIONS.DELETE_DIGIT:
